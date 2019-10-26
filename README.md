@@ -1,4 +1,4 @@
-# winterwood
+# Winterwood Inventory
 A sample inventory application for Winterwood Farm. This application has been developed using .Net Core 3 and Entity Framwork Core.
 
 The live demo can be found at https://winterwoodinventoryweb.azurewebsites.net/
