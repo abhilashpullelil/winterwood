@@ -1,0 +1,49 @@
+﻿@model Winterwood.Inventory.DTO.BatchDTO
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Update the quantity of the batch @Model.BatchId</h1>
+
+<label class="alert alert-info">You cann't update the products once you added the batch. Please consider to delete the batch and create new batch if added the batch incorrectly</label>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="BatchId" class="control-label"></label>
+                <input type="hidden" asp-for="BatchId" class="form-control" />
+                <label class="form-control"> @Model.BatchId </label>
+            </div>
+            <div class="form-group">
+                <label class="control-label"> Fruit</label>
+                <input type="hidden" asp-for="FruitId" class="form-control" />
+                <label class="form-control"> @Model.FruitName </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="VarietyId" class="control-label"></label>
+                <input type="hidden" asp-for="VarietyId" class="form-control" />
+                <label class="form-control"> @Model.VarietyName </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="Quantity" class="control-label"></label>
+                <input type="number" asp-for="Quantity" class="form-control" />
+                <span asp-validation-for="Quantity" class="text-danger"></span>
+            </div>
+           
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,34 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+@if (SignInManager.IsSignedIn(User))
+{
+    <div class="text-center">
+        <h1 class="display-4">Welcome @User.Identity.Name!</h1>
+        <p>This app is just for demonstration. </p>
+        <h4>How to use this app?</h4>
+        <p>
+            Manage batches from the menu <b>Batch</b>
+        </p>
+        <p>
+            View current stockes from the menu <b>Stock</b>
+        </p>
+        <p>
+            Manage your account by clicking your name on the top right of this window
+        </p>
+    </div>
+}
+else
+{
+    <div class="text-center">
+        <h1 class="display-4">Welcome to Winterwood Inventory</h1>
+        <p>This app is just for demonstration. </p>
+        <h4>Please login to your account and start managing batches</h4>
+    </div>
+}
+

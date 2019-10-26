@@ -1,0 +1,87 @@
+﻿@model Winterwood.Inventory.DTO.BatchHomeVM
+
+@{
+    ViewData["Title"] = "Batches";
+}
+
+<h1>Batches</h1>
+
+@if(TempData["Message"] != null && TempData["Message"] != string.Empty)
+{
+    <label class="alert alert-info"> @TempData["Message"] </label>
+}
+
+<p>
+    <a class="btn btn-outline-primary" asp-action="Create" >Add New Batch</a>
+</p>
+
+@if(Model.BatchList != null && Model.BatchList.Count > 0)
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    Batch ID
+                </th>
+                <th>
+                    Fruit
+                </th>
+                <th>
+                    Variety
+                </th>
+                <th>
+                    Quantity
+                </th>
+                <th>
+                    Added date (UTC)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.BatchList) {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BatchId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FruitName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.VarietyName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Quantity)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CreatedDateUtc)
+                </td>
+                <td>
+                    <a class="btn btn-outline-info btn-sm" asp-action="Edit" asp-route-batchId="@item.BatchId">Edit</a>
+                    <a class="btn btn-outline-danger btn-sm" asp-action="Delete" asp-route-batchId="@item.BatchId">Delete</a>
+                </td>
+            </tr>
+    }
+        </tbody>
+    </table>
+
+    <div class="pageination">
+        @if(Model.HasPreviousPage){
+        <a class="btn btn-outline-dark" asp-route-currentPage="@(Model.CurrentPage-1)">Previous</a>
+        }
+        else{
+        <a class="btn btn-outline-dark" disabled="disabled">Previous</a>
+        }
+        @if(Model.HasNextPage){
+            <a class="btn btn-outline-dark" asp-route-currentPage="@(Model.CurrentPage+1)">Next</a>
+        }
+        else{
+            <a class="btn btn-outline-dark" disabled="disabled">Next</a>
+        }
+    </div>
+}
+else{
+    <h4>Currently there are no batches. Please start by adding batches from the above button</h4>
+}
+
+

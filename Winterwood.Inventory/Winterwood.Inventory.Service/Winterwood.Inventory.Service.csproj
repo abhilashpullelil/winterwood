@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Winterwood.Inventory.DTO\Winterwood.Inventory.DTO.csproj" />
+    <ProjectReference Include="..\Winterwood.Inventory.Entity\Winterwood.Inventory.Entity.csproj" />
+    <ProjectReference Include="..\Winterwood.Inventory.Repository\Winterwood.Inventory.Repository.csproj" />
+  </ItemGroup>
+
+</Project>

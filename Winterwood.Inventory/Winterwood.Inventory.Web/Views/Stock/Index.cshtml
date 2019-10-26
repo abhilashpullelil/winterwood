@@ -1,0 +1,59 @@
+﻿@model Winterwood.Inventory.DTO.StockHomeVM
+
+@{
+    ViewData["Title"] = "Stock";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Stock</h1>
+
+<p>
+    <label class="alert alert-info"> You cann't add/ edit stock items individually. Click <a asp-action="Index" asp-controller="Batch"> here</a> to add/ edit stockes by batches  </label>
+</p>
+
+@if (Model.StockList != null && Model.StockList.Count > 0)
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    Stock ID
+                </th>
+                <th>
+                    Fruit
+                </th>
+                <th>
+                    Variety
+                </th>
+                <th>
+                    Quantity
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.StockList)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.StockId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FruitName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.VarietyName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Quantity)
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <h4>Currently there are no stocks available. Please start by adding batches from this <a asp-action="Create" asp-controller="Batch">link</a></h4>
+}
+
+
