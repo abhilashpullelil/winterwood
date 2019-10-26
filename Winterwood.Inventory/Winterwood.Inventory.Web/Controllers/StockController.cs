@@ -12,6 +12,9 @@ using Winterwood.Inventory.Web.Models;
 
 namespace Winterwood.Inventory.Web.Controllers
 {
+    /// <summary>
+    /// Restricted resource. Only authorized users can access
+    /// </summary>
     [Authorize]
     public class StockController : Controller
     {
@@ -24,6 +27,10 @@ namespace Winterwood.Inventory.Web.Controllers
             this._stock = stockService;
         }
 
+        /// <summary>
+        /// List all stocks
+        /// </summary>
+        /// <returns></returns>
         public IActionResult Index()
         {
             var model = new StockHomeVM();

@@ -30,7 +30,7 @@ namespace Winterwood.Inventory.Web.Controllers
         }
 
         /// <summary>
-        /// List all batches as a list
+        /// List all batches with pagination
         /// </summary>
         /// <returns></returns>
         public IActionResult Index(int? currentPage)
@@ -45,6 +45,10 @@ namespace Winterwood.Inventory.Web.Controllers
             return View(model);
         }
 
+        /// <summary>
+        /// Create batch form
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public IActionResult Create()
         {
@@ -54,6 +58,11 @@ namespace Winterwood.Inventory.Web.Controllers
             return View(model);
         }
 
+        /// <summary>
+        /// Creating the batch
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
         [HttpPost]
         public IActionResult Create(BatchDTO model)
         {
@@ -76,6 +85,11 @@ namespace Winterwood.Inventory.Web.Controllers
             }
         }
 
+        /// <summary>
+        /// Form to edit a batch
+        /// </summary>
+        /// <param name="batchId"></param>
+        /// <returns></returns>
         [HttpGet]
         public IActionResult Edit(int batchId)
         {
@@ -91,6 +105,11 @@ namespace Winterwood.Inventory.Web.Controllers
             }
         }
 
+        /// <summary>
+        /// Editing a batch
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
         [HttpPost]
         public IActionResult Edit(BatchDTO model)
         {
@@ -108,6 +127,11 @@ namespace Winterwood.Inventory.Web.Controllers
             return RedirectToAction("Index");
         }
 
+        /// <summary>
+        /// Delete a batch
+        /// </summary>
+        /// <param name="batchId"></param>
+        /// <returns></returns>
         public IActionResult Delete(int batchId)
         {
             try

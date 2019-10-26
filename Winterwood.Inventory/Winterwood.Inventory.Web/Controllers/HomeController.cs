@@ -18,11 +18,19 @@ namespace Winterwood.Inventory.Web.Controllers
             _logger = logger;
         }
 
+        /// <summary>
+        /// Home page for both logged and public user
+        /// </summary>
+        /// <returns></returns>
         public IActionResult Index()
         {
             return View();
         }
 
+        /// <summary>
+        /// Privacy page
+        /// </summary>
+        /// <returns></returns>
         public IActionResult Privacy()
         {
             return View();
